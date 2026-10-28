@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ShieldBrowse" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">#160B36</item>
+        <item name="android:statusBarColor">#160B36</item>
+        <item name="android:navigationBarColor">#160B36</item>
+        <item name="android:colorAccent">#E879C6</item>
+    </style>
+</resources>
