@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.shieldbrowse.app"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.shieldbrowse.app"
