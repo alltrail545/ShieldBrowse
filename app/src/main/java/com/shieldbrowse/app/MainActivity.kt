@@ -275,7 +275,7 @@ class MainActivity : Activity() {
             }
         }
         session.progressDelegate = object : GeckoSession.ProgressDelegate {
-            override fun onPageStart(s: GeckoSession, url: String?) {
+            override fun onPageStart(s: GeckoSession, url: String) {
                 if (tab === currentTab()) {
                     progress.visibility = View.VISIBLE
                     progress.progress = 0
