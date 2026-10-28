@@ -237,7 +237,11 @@ class MainActivity : Activity() {
     private fun wireDelegates(tab: Tab) {
         val session = tab.session
         session.navigationDelegate = object : GeckoSession.NavigationDelegate {
-            override fun onLocationChange(s: GeckoSession, url: String?) {
+            override fun onLocationChange(
+                s: GeckoSession, url: String?,
+                permissions: MutableList<GeckoSession.PermissionDelegate.ContentPermission>,
+                hasUserGesture: Boolean
+            ) {
                 tab.url = url ?: ""
                 if (!tab.isPrivate && tab.url.startsWith("http")) {
                     Store.addHistory(this@MainActivity, tab.title, tab.url)
@@ -269,7 +273,7 @@ class MainActivity : Activity() {
                 }
                 return GeckoResult.fromValue(AllowOrDeny.ALLOW)
             }
-            override fun onNewSession(s: GeckoSession, uri: String?): GeckoResult<GeckoSession> {
+            override fun onNewSession(s: GeckoSession, uri: String): GeckoResult<GeckoSession>? {
                 val t = createTab(uri, tab.isPrivate)
                 return GeckoResult.fromValue(t.session)
             }
